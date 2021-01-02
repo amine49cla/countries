@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".presentation.countrydisplay.country_activity"></activity>
         <activity
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:name=".presentation.countrydisplay.CountryDisplayActivity">

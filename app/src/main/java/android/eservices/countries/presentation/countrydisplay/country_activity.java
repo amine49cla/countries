@@ -17,9 +17,11 @@ import com.squareup.picasso.Picasso;
 public class country_activity extends AppCompatActivity {
 
     private ImageView thumbnailImageView;
-    private TextView titleTextView;
-    private TextView dateTextView;
-    private TextView descriptionTextView;
+    private TextView nameTextView;
+    private TextView regionTextView;
+    private TextView capitalTextView;
+    private TextView populationTextView;
+
 
 
     @Override
@@ -29,23 +31,25 @@ public class country_activity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        titleTextView = findViewById(R.id.title);
-        dateTextView = findViewById(R.id.date);
-        descriptionTextView = findViewById(R.id.description);
+        nameTextView = findViewById(R.id.name);
+        regionTextView = findViewById(R.id.region);
+        capitalTextView = findViewById(R.id.capital);
+        populationTextView = findViewById(R.id.population);
         thumbnailImageView = findViewById(R.id.image);
 
-        String title = intent.getExtras().getString("title");
-        String description = intent.getExtras().getString("description");
+        String name = intent.getExtras().getString("name");
+        String region = intent.getExtras().getString("region");
         String urlPoster = intent.getExtras().getString("thumbnail");
-        String date = intent.getExtras().getString("date");
+        String capital = intent.getExtras().getString("capital");
+        Long population = intent.getExtras().getLong("population");
 
-        titleTextView.setText(title);
-        dateTextView.setText(date);
-        descriptionTextView.setText(description);
-        Picasso.with(descriptionTextView.getContext())
+        nameTextView.setText(name);
+        regionTextView.setText(region);
+        capitalTextView.setText(capital);
+        populationTextView.setText(population.toString());
+        Picasso.with(capitalTextView.getContext())
                 .load(urlPoster)
                 .into(thumbnailImageView);
     }
-
 
 }

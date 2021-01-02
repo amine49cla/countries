@@ -18,15 +18,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/capital"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:text="lkfjhlekfhelkjg"
+                android:textSize="18sp"
+                android:padding="8dp"
                 android:background="#ededed"
-                android:textSize="25sp" />
+                android:text="capital" />
 
             <ImageView
                 android:id="@+id/image"
@@ -37,29 +36,45 @@
                 android:textStyle="bold"
                 android:scaleType="centerCrop"/>
 
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textSize="18sp"
-                    android:padding="8dp"
-                    android:background="#ededed"
-                    android:text="27/10/2019" />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="name"
+                android:background="#ededed"
+                android:textSize="25sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Description"
+                android:text="Population"
+                android:textSize="23sp" />
+            <TextView
+                android:id="@+id/population"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="population"
+                android:background="#ededed"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Region"
                 android:textSize="23sp" />
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/region"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="description"
+                android:text="region"
                 android:background="#ededed"
                 android:textSize="16sp" />
 
