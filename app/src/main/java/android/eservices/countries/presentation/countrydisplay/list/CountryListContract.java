@@ -11,21 +11,12 @@ public class CountryListContract {
 
     public interface View {
         void displayCountries(List<Country> countryItemViewModelList);
-
-        void onCountryAddedToFavorites();
-
-        void onCountryRemovedFromFavorites();
-
     }
 
     public interface Presenter {
         void searchCountries();
 
         void attachView(View view);
-
-        void addCountryToFavorite(String countryId);
-
-        void removeCountryFromFavorites(String countryId);
 
         void detachView();
     }

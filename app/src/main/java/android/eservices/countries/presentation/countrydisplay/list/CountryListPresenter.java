@@ -46,43 +46,7 @@ public class CountryListPresenter implements CountryListContract.Presenter {
                 }));
 
     }
-
-    @Override
-    public void addCountryToFavorite(String countryId) {
-        compositeDisposable.add(countryDisplayRepository.addCountryToFavorites(countryId)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableCompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        view.onCountryAddedToFavorites();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-                }));
-    }
-
-    @Override
-    public void removeCountryFromFavorites(String countryId) {
-        compositeDisposable.add(countryDisplayRepository.removeCountryFromFavorites(countryId)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableCompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        view.onCountryRemovedFromFavorites();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-                }));
-    }
-
+    
     @Override
     public void attachView(CountryListContract.View view) {
         this.view = view;

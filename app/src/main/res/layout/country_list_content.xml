@@ -47,16 +47,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/thumbnail_image_view"/>
 
-        <Switch
-            android:outlineAmbientShadowColor="@color/colorAccent"
-            android:id="@+id/favorite_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:checked="true"
-            app:layout_constraintBottom_toBottomOf="@id/thumbnail_image_view"
-            app:layout_constraintRight_toRightOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

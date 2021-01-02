@@ -4,18 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.eservices.countries.data.api.model.Country;
 import android.eservices.countries.presentation.countrydisplay.country_activity;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.eservices.countries.R;
-import com.squareup.picasso.Picasso;
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,62 +27,46 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
         public ImageView thumbnailImageView;
         public TextView nameTextView;
         public TextView regionTextView;
-        public Switch favoriteSwitch;
         private View v;
         private Country countryItemViewModel;
-        private CountryActionInterface countryActionInterface;
         CardView cardView;
 
 
-        public CountryViewHolder(View v, CountryActionInterface countryActionInterface) {
+        public CountryViewHolder(View v) {
             super(v);
             nameTextView = v.findViewById(R.id.name_text_view);
             regionTextView = v.findViewById(R.id.region);
-            favoriteSwitch = v.findViewById(R.id.favorite_switch);
             thumbnailImageView = v.findViewById(R.id.thumbnail_image_view);
             cardView = v.findViewById(R.id.card_view_id);
             this.v = v;
-            this.countryActionInterface = countryActionInterface;
-            setupListeners();
         }
 
-        private void setupListeners() {
-            favoriteSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                    countryActionInterface.onFavoriteToggle(countryItemViewModel.getId(), b);
-                }
-            });
-        }
 
         void bind(Country countryItemViewModel) {
             this.countryItemViewModel = countryItemViewModel;
             nameTextView.setText(countryItemViewModel.getName());
             regionTextView.setText(countryItemViewModel.getRegion());
-            favoriteSwitch.setChecked(countryItemViewModel.isFavorite());
             String urlPoster = countryItemViewModel.getFlag();
-            Picasso.with(v.getContext())
-                    .load(urlPoster)
-                    .into(thumbnailImageView);
+            GlideToVectorYou
+                    .init()
+                    .with(v.getContext())
+                    .load(Uri.parse(urlPoster),thumbnailImageView);
         }
 
     }
 
     private List<Country> countryItemViewModelList;
-    private CountryActionInterface countryActionInterface;
     private Context context;
 
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CountryAdapter(CountryActionInterface countryActionInterface) {
+    public CountryAdapter() {
         countryItemViewModelList = new ArrayList<>();
-        this.countryActionInterface = countryActionInterface;
     }
 
     public void bindViewModels(List<Country> countryItemViewModelList) {
         this.countryItemViewModelList.clear();
         this.countryItemViewModelList.addAll(countryItemViewModelList);
-
         notifyDataSetChanged();
     }
 
@@ -94,7 +76,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
         context = parent.getContext();
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.country_list_content, parent, false);
-        CountryViewHolder countryViewHolder = new CountryViewHolder(v, countryActionInterface);
+        CountryViewHolder countryViewHolder = new CountryViewHolder(v);
         return countryViewHolder;
     }
 

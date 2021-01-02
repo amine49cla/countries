@@ -14,7 +14,6 @@ public class Country {
     private String area;
     private String flag;
     private String region;
-    private boolean isFavorite;
 
     public Country(String id, String name, String capital,
                    Long population, String area, String region) {
@@ -81,14 +80,6 @@ public class Country {
 
     public void setRegion(String region) {
         this.region = region;
-    }
-
-    public boolean isFavorite() {
-        return isFavorite;
-    }
-
-    public void setFavorite() {
-        isFavorite = true;
     }
 
 }

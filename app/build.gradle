@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "android.eservices.countries"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -52,6 +52,7 @@ dependencies {
     implementation "androidx.room:room-rxjava2:2.1.0"
     implementation 'com.jakewharton:butterknife:10.0.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
 
 }

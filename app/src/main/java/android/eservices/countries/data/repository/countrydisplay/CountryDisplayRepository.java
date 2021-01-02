@@ -14,8 +14,4 @@ public interface CountryDisplayRepository {
 
     Single<List<Country>> getCountries();
 
-    Completable addCountryToFavorites(String CountryId);
-
-    Completable removeCountryFromFavorites(String countryId);
-
 }

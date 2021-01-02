@@ -30,9 +30,6 @@
 
         <include layout="@layout/empty_country" />
 
-        <include layout="@layout/empty_favorite" />
-
-
         <ProgressBar
             android:id="@+id/loading_indicator_pb"
             android:layout_width="wrap_content"

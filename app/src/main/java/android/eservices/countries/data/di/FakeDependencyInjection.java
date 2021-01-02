@@ -5,7 +5,6 @@ import android.eservices.countries.data.api.CountryDisplayService;
 import android.eservices.countries.data.db.CountryDatabase;
 import android.eservices.countries.data.repository.countrydisplay.CountryDisplayDataRepository;
 import android.eservices.countries.data.repository.countrydisplay.CountryDisplayRepository;
-import android.eservices.countries.data.repository.countrydisplay.local.CountryDisplayLocalDataSource;
 import android.eservices.countries.data.repository.countrydisplay.mapper.CountryToCountryEntityMapper;
 import android.eservices.countries.data.repository.countrydisplay.remote.CountryDisplayRemoteDataSource;
 
@@ -36,7 +35,6 @@ public class FakeDependencyInjection {
     public static CountryDisplayRepository getCountryDisplayRepository() {
         if (countryDisplayRepository == null) {
             countryDisplayRepository = new CountryDisplayDataRepository(
-                    new CountryDisplayLocalDataSource(getCountryDatabase()),
                     new CountryDisplayRemoteDataSource(getCountryDisplayService()),
                     new CountryToCountryEntityMapper()
             );

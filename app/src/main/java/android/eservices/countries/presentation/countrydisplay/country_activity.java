@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.eservices.countries.R;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -47,9 +49,10 @@ public class country_activity extends AppCompatActivity {
         regionTextView.setText(region);
         capitalTextView.setText(capital);
         populationTextView.setText(population.toString());
-        Picasso.with(capitalTextView.getContext())
-                .load(urlPoster)
-                .into(thumbnailImageView);
+        GlideToVectorYou
+                .init()
+                .with(capitalTextView.getContext())
+                .load(Uri.parse(urlPoster),thumbnailImageView);
     }
 
 }
