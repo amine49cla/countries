@@ -72,20 +72,16 @@ public class CountryDisplayDataRepository implements CountryDisplayRepository {
      * It is a method which allows to add country to our list of favorites countries
      * @return RrJs Type that contain all favorites countries
      */
-    @Override
-    public Flowable<List<CountryEntity>> getFavoriteCountries() {
-        return countryDisplayLocalDataSource.loadFavorites();
-    }
 
     /**
      * @return RrJs Type that return list of country from remote database
      */
     @Override
-    public Single<Country[]> getCountries() {
+    public Single<List<Country>> getCountries() {
         return countryDisplayRemoteDataSource.getCountries()
-                .zipWith(countryDisplayLocalDataSource.getFavoriteIdList(), new BiFunction<Country[], List<String>, Country[]>() {
+                .zipWith(countryDisplayLocalDataSource.getFavoriteIdList(), new BiFunction<List<Country>, List<String>, List<Country>>() {
                     @Override
-                    public Country[] apply(Country[] countries, List<String> longs) throws Exception {
+                    public List<Country> apply(List<Country> countries, List<String> longs) throws Exception {
                         for (Country country : countries) {
                             if (longs.contains(country.getId())) {
                                 country.setFavorite();

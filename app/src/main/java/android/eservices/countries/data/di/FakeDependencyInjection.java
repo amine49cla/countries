@@ -62,7 +62,7 @@ public class FakeDependencyInjection {
                     .build();
 
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://restcountries.eu/rest/v2/")
+                    .baseUrl("https://restcountries.eu/")
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create(getGson()))

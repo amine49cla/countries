@@ -12,9 +12,7 @@ import io.reactivex.Single;
  */
 public interface CountryDisplayRepository {
 
-    Single<Country[]> getCountries();
-
-    Flowable<List<CountryEntity>> getFavoriteCountries();
+    Single<List<Country>> getCountries();
 
     Completable addCountryToFavorites(String CountryId);
 

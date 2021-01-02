@@ -2,6 +2,7 @@ package android.eservices.countries.data.repository.countrydisplay.remote;
 
 import android.eservices.countries.data.api.CountryDisplayService;
 import android.eservices.countries.data.api.model.Country;
+import java.util.List;
 import io.reactivex.Single;
 
 /**
@@ -21,7 +22,7 @@ public class CountryDisplayRemoteDataSource {
     /**
      * @return a country from remote database through web service
      */
-    public Single<Country[]> getCountries() {
+    public Single<List<Country>> getCountries() {
         return countryDisplayService.getCountries();
     }
 
