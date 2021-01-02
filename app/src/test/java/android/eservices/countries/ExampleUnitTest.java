@@ -1,4 +1,4 @@
-package com.example.countries;
+package android.eservices.countries;
 
 import org.junit.Test;
 
